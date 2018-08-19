@@ -3948,33 +3948,30 @@ var _templateObject = _taggedTemplateLiteral(['\n    ', '\n\n    * {\n        bo
 
 var _reactEmotion = __webpack_require__(3);
 
-var _webfontloader = __webpack_require__(61);
-
-var _webfontloader2 = _interopRequireDefault(_webfontloader);
-
 var _polished = __webpack_require__(4);
 
 var _variables = __webpack_require__(2);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
-_webfontloader2.default.load({
-    google: {
-        families: ['Work+Sans:300:400:700', 'Source+Sans+Pro:400,600,700,900']
-    }
-});
+/*
+if (typeof window !== 'undefined') {
+	var WebFont = require('webfontloader');
+
+	WebFont.load({
+		google: {
+			families: [
+            'Work+Sans:300:400:700',
+            'Source+Sans+Pro:400,600,700,900'
+			]
+		},
+	});
+}
+*/
 
 (0, _reactEmotion.injectGlobal)(_templateObject, (0, _polished.normalize)(), _variables.palette.greenDarkest, _variables.palette.grayLighter, _variables.family.sourceSansPro, _variables.palette.white, (0, _polished.transparentize)(0.25, _variables.palette.white), _variables.palette.grayLight, _variables.palette.grayLighter, (0, _polished.transparentize)(0.75, _variables.palette.grayLighter), (0, _polished.rem)('12px', '16px'), (0, _polished.transparentize)(0.8, _variables.palette.grayLighter), (0, _polished.transparentize)(0.8, _variables.palette.grayLighter), (0, _polished.placeholder)({ 'color': _variables.palette.grayLighter }));
-
-/***/ }),
-/* 61 */
-/***/ (function(module, exports) {
-
-module.exports = require("webfontloader");
 
 /***/ })
 /******/ ]);
 });
-//# sourceMappingURL=static.f2f4bcc0.js.map
+//# sourceMappingURL=static.d134e476.js.map
