@@ -715,7 +715,7 @@ LookUpForm = (0, _reactRedux.connect)(function (state) {
     formValues: state.form,
     initialValues: {
       method: 'h18',
-      lookup: 'ddo'
+      lookup: 'card'
     },
     cache: state.cache
   };
@@ -724,6 +724,8 @@ LookUpForm = (0, _reactRedux.connect)(function (state) {
     methodChange: function methodChange(values, cache) {
       if (!values.lookupForm) return;
       if (!values.lookupForm.values) return;
+      if (!cache.method || !cache.lookup) return;
+      console.log("METHOD CHANGE", cache);
       var V = values.lookupForm.values;
       if (cache.method != V.method) {
         dispatch((0, _actions.resetOutputBox)());
@@ -736,6 +738,8 @@ LookUpForm = (0, _reactRedux.connect)(function (state) {
     lookupChange: function lookupChange(values, cache) {
       if (!values.lookupForm) return;
       if (!values.lookupForm.values) return;
+      if (!cache.method || !cache.lookup) return;
+      console.log("LOOKUP CHANGE", cache);
       var V = values.lookupForm.values;
       if (cache.lookup != V.lookup) dispatch((0, _actions.resetOutputBox)());
       var method = V.method;
@@ -763,6 +767,7 @@ LookUpForm = (0, _reactRedux.connect)(function (state) {
     didChange: function didChange(values, cache) {
       if (!values.lookupForm) return;
       if (!values.lookupForm.values) return;
+      console.log("DID CHANGE", cache);
       var V = values.lookupForm.values;
       if (cache.sn != V.sn) dispatch((0, _actions.resetOutputBox)());
       dispatch((0, _actions.recordLastValue)('sn', V.sn));
@@ -1089,6 +1094,7 @@ exports.default = (0, _reactRedux.connect)(function (state) {
         dispatch((0, _reduxForm.change)('lookupForm', 'sn', searchParams.get('sn')));
         if (searchParams.get('cmd') === 'hello') {
           dispatch((0, _reduxForm.change)('lookupForm', 'lookup', 'card'));
+          dispatch((0, _reduxForm.change)('lookupForm', 'method', 'h18'));
           dispatch((0, _index.lookupCard)(dispatch, searchParams.get('sn')));
         } else {
           dispatch((0, _reduxForm.change)('lookupForm', 'method', 'h18'));
@@ -4654,4 +4660,4 @@ if (typeof window !== 'undefined') {
 /***/ })
 /******/ ]);
 });
-//# sourceMappingURL=static.7a2c592a.js.map
+//# sourceMappingURL=static.56655b96.js.map
