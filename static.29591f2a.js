@@ -722,25 +722,29 @@ LookUpForm = (0, _reactRedux.connect)(function (state) {
 }, function (dispatch) {
   return {
     methodChange: function methodChange(values, cache) {
+      //console.log("SHOULD CHANGE METHOD?:",values,cache);
       if (!values.lookupForm) return;
       if (!values.lookupForm.values) return;
-      if (!cache.method || !cache.lookup) return;
-      console.log("METHOD CHANGE", cache);
       var V = values.lookupForm.values;
+      dispatch((0, _actions.recordLastValue)('method', V.method));
+      if (!cache.method || !cache.lookup || !cache.sn) return;
+
+      //console.log("METHOD CHANGE",cache);
       if (cache.method != V.method) {
         dispatch((0, _actions.resetOutputBox)());
         if (V.sn && V.sn !== '' && V.method) {
           dispatch((0, _actions.lookupDDO)(dispatch, V.method, V.sn));
         }
       }
-      dispatch((0, _actions.recordLastValue)('method', V.method));
     },
     lookupChange: function lookupChange(values, cache) {
+      //console.log("SHOULD CHANGE LOOKUP?:",values,cache);
       if (!values.lookupForm) return;
       if (!values.lookupForm.values) return;
-      if (!cache.method || !cache.lookup) return;
-      console.log("LOOKUP CHANGE", cache);
       var V = values.lookupForm.values;
+      dispatch((0, _actions.recordLastValue)('lookup', V.lookup));
+      if (!cache.method || !cache.lookup || !cache.sn) return;
+
       if (cache.lookup != V.lookup) dispatch((0, _actions.resetOutputBox)());
       var method = V.method;
       if (V.lookup !== 'ddo') {
@@ -765,10 +769,13 @@ LookUpForm = (0, _reactRedux.connect)(function (state) {
       dispatch((0, _actions.recordLastValue)('lookup', V.lookup));
     },
     didChange: function didChange(values, cache) {
+      //console.log("SHOULD CHANGE DID?:",values,cache);
       if (!values.lookupForm) return;
       if (!values.lookupForm.values) return;
-      console.log("DID CHANGE", cache);
       var V = values.lookupForm.values;
+      dispatch((0, _actions.recordLastValue)('sn', V.sn));
+      if (!cache.method || !cache.lookup || !cache.sn) return;
+
       if (cache.sn != V.sn) dispatch((0, _actions.resetOutputBox)());
       dispatch((0, _actions.recordLastValue)('sn', V.sn));
     },
@@ -1298,7 +1305,7 @@ var lookupMap = exports.lookupMap = function lookupMap(dispatch, sn) {
   fetch(url).then(function (response) {
     if (response.status === 200) {
       response.json().then(function (data) {
-        console.log("GOT DATA:", data);
+        //console.log("GOT DATA:",data);
         dispatch(receiveData('map', data));
       });
     } else {
@@ -1319,7 +1326,7 @@ var lookupCard = exports.lookupCard = function lookupCard(dispatch, sn) {
   fetch(url).then(function (response) {
     if (response.status === 200) {
       response.json().then(function (data) {
-        console.log("GOT CARD DATA:", data);
+        //console.log("GOT CARD DATA:",data);
         if (data._t != 'korsimoro-h18') data = {
           _t: "not found"
         };
@@ -3370,8 +3377,8 @@ var OutputBox = function OutputBox(props) {
   var server = props.server,
       qrcode = props.qrcode,
       form = props.form;
+  //console.log("OUTPUT BOX : SERVER =",server,props,form);
 
-  console.log("OUTPUT BOX : SERVER =", server, props, form);
   if (server.loading) {
     return _react2.default.createElement(_Loading2.default, null);
   }
@@ -4465,21 +4472,21 @@ exports.default = function () {
       }
     case 'LOADING':
       {
-        console.log("HANDLE LOADING");
+        //console.log("HANDLE LOADING");
         return _extends({}, state, {
           loading: true
         });
       }
     case 'RECEIVE_REGISTRY':
       {
-        console.log("GOT REGISTRY");
+        console.log("RECEIVE_REGISTRY");
         return _extends({}, state, {
           loading: false,
           registry: action.registry
         });
       }
     case 'RECEIVE_DATA':
-      console.log("RECEIVED DATA", action.data);
+      console.log("RECEIVED JSON FROM SERVER", action.data);
       if (action.data._t === 'not found') {
         return _extends({}, state, {
           lookup: action.lookup,
@@ -4660,4 +4667,4 @@ if (typeof window !== 'undefined') {
 /***/ })
 /******/ ]);
 });
-//# sourceMappingURL=static.56655b96.js.map
+//# sourceMappingURL=static.29591f2a.js.map
