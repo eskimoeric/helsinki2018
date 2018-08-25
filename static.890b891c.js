@@ -1633,7 +1633,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _templateObject = _taggedTemplateLiteral(['\n    column-count: 4;\n    column-span: all;\n    column-gap: 45px;\n    column-fill: balance;\n'], ['\n    column-count: 4;\n    column-span: all;\n    column-gap: 45px;\n    column-fill: balance;\n']);
+var _templateObject = _taggedTemplateLiteral(['\n    column-count: 3;\n    column-span: all;\n    column-gap: 45px;\n    column-fill: balance;\n'], ['\n    column-count: 3;\n    column-span: all;\n    column-gap: 45px;\n    column-fill: balance;\n']);
 
 var _react = __webpack_require__(0);
 
@@ -1769,7 +1769,7 @@ var AboutH18Cards = function AboutH18Cards(props) {
     _react2.default.createElement(
       'h4',
       null,
-      'Social Identities'
+      'Cardish Society'
     ),
     'The following is a list of minted cardish identities.  The society has been scattered to the winds, and, through acts of claimation and the registration of cardly biometrics, they hope to regain structure to their realm.',
     _react2.default.createElement(
@@ -1798,28 +1798,56 @@ var AboutH18Cards = function AboutH18Cards(props) {
     _react2.default.createElement(
       'h4',
       null,
-      'Multiple Trust Frameworks and Credentials'
+      'Trust Frameworks'
     ),
     _react2.default.createElement(
       'p',
       null,
-      'When is a domain specific trust framework required, and when can trust frameworks be combined?'
+      'When is a domain specific trust framework warranted, and when can trust frameworks be combined?  Can trust frameworks exist at the personal level?  The Sovrin Trust Framework defines a system of roles for managing trust within an ecosystem.  These roles include:'
     ),
     _react2.default.createElement(
-      'dl',
+      'ul',
       null,
       _react2.default.createElement(
-        'dt',
+        'li',
         null,
-        'Unified Trust Framework'
+        'Trust Framework Authority'
       ),
-      _react2.default.createElement('dd', null),
       _react2.default.createElement(
-        'dt',
+        'li',
         null,
-        'Personalized Trust Framework'
+        'Trust Anchor'
       ),
-      _react2.default.createElement('dd', null)
+      _react2.default.createElement(
+        'li',
+        null,
+        'Trust Hub'
+      ),
+      _react2.default.createElement(
+        'li',
+        null,
+        'Auditor'
+      ),
+      _react2.default.createElement(
+        'li',
+        null,
+        'Auditor Accreditation Authority'
+      ),
+      _react2.default.createElement(
+        'li',
+        null,
+        'Currency Exchange'
+      )
+    ),
+    _react2.default.createElement(
+      'p',
+      null,
+      'These roles can be combined, or given null values in some cases, and in so doing alter dynamics of the resulting web of trust and influence the non-technical interoperability betwen trust niches.'
+    ),
+    _react2.default.createElement(
+      'p',
+      null,
+      'For example, the cardish society is a non-capitalist society that does not use money.  They lack a native fiat or crypto currency, and so how to interact with Token based identity ecosystems is unclear. Does participation in a Sovrin based Domain Specific Trust Framework mandate the monetization of identity and force the conception of one\'s identity into a pigeonhole of free-markets and commodities? If not, how can we establish a domain specific trust framework whereby several of the functions are simplified and collapsed, and how does this interact with other identity systems such as uPort or even the global Sovrin ecosystem?'
     )
   );
 };
@@ -4716,4 +4744,4 @@ if (typeof window !== 'undefined') {
 /***/ })
 /******/ ]);
 });
-//# sourceMappingURL=static.cddae92d.js.map
+//# sourceMappingURL=static.890b891c.js.map
